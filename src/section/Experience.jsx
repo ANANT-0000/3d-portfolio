@@ -11,7 +11,7 @@ export const Experience = () =>
         <section className="c-space my-20">
             <div className="w-full text-white/60">
                 <h3 className="head-text">
-                    My Work Experience
+                    Education & Achievements
                 </h3>
                 <div className="work-container">
                     <div className="work-canvas">
@@ -25,9 +25,9 @@ export const Experience = () =>
                                 enableZoom={false}
                                 maxPolarAngle={Math.PI / 2}
                             />
-                            <Suspense fallback={<CanvasLoader/>}></Suspense>
+                            <Suspense fallback={<CanvasLoader />}></Suspense>
 
-<Developer position-y={-3} scale={3} animationName={animationName} />
+                            <Developer position-y={-3} scale={3} animationName={animationName} />
                         </Canvas>
                     </div>
                     <div className="work-content">
@@ -40,8 +40,8 @@ export const Experience = () =>
                                     onPointerOut={() => setAnimationName('idle')}
                                     className="work-content_container group">
                                     <div className="flex flex-col h-full justify-start items-center py-2">
-                                        <div className="work-content_logo">
-                                            <img className="w-full h-full" src={item.icon} alt="" />
+                                        <div className="work-content_logo ">
+                                            <img className="bg-white w-full h-full object-contain rounded-lg" src={item.icon} alt="" />
                                         </div>
 
                                         <div className="work-content_bar" />

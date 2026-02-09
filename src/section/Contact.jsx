@@ -4,7 +4,8 @@ import { useRef, useState } from 'react';
 import useAlert from '../hooks/useAlert.js';
 import Alert from '../components/Alert.jsx';
 
-const Contact = () => {
+const Contact = () =>
+{
   const formRef = useRef();
 
   const { alert, showAlert, hideAlert } = useAlert();
@@ -12,11 +13,13 @@ const Contact = () => {
 
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange = ({ target: { name, value } }) =>
+  {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) =>
+  {
     e.preventDefault();
     setLoading(true);
 
@@ -26,15 +29,16 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
-          to_name: 'JavaScript Mastery',
+          to_name: 'Manish Kushwaha',
           from_email: form.email,
-          to_email: 'sujata@jsmastery.pro',
+          to_email: 'manishkushwaha2525@gmail.com',
           message: form.message,
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
       )
       .then(
-        () => {
+        () =>
+        {
           setLoading(false);
           showAlert({
             show: true,
@@ -42,7 +46,8 @@ const Contact = () => {
             type: 'success',
           });
 
-          setTimeout(() => {
+          setTimeout(() =>
+          {
             hideAlert(false);
             setForm({
               name: '',
@@ -51,7 +56,8 @@ const Contact = () => {
             });
           }, [3000]);
         },
-        (error) => {
+        (error) =>
+        {
           setLoading(false);
           console.error(error);
 

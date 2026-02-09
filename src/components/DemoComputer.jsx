@@ -9,15 +9,14 @@ export function DemoComputer ({ videoTxt, ...props })
     const { nodes, materials } = useGLTF('/models/personal_computer.glb')
     const txt = useVideoTexture(videoTxt)
 
-    useGSAP((state, delta) =>
+    useGSAP(() =>
     {
         gsap.from(groupRef.current.rotation, {
             y: Math.PI / 2,
             duration: 1,
             ease: 'power3.out'
         })
-    }, videoTxt)
-    console.log(videoTxt);
+    }, { dependencies: [videoTxt], scope: groupRef })
     return (
         <group {...props} ref={groupRef} >
             <group rotation={[-Math.PI / 2, 0, 0]} scale={0.008}
