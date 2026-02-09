@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 import { CanvasLoader } from '../components/CanvasLoader';
 import { DemoComputer } from '../components/DemoComputer';
+import ProjectDots from '../components/ProjectDots';
 const projectCount = myProjects.length;
 
 export const Projects = () =>
@@ -71,32 +72,37 @@ export const Projects = () =>
             <button className="arrow-btn" onClick={() => handleNavigation('previous')}>
               <img src={'/assets/left-arrow.png'} alt="left-arrow" className='w-4 h-4' />
             </button>
+            <ProjectDots
+              count={projectCount}
+              activeIndex={selectedProjectIndex}
+              onSelect={setSelectedProjectIndex}
+            />
             <button className="arrow-btn" onClick={() => handleNavigation('next')}>
               <img src={'/assets/right-arrow.png'} alt="right-arrow" className='w-4 h-4' />
             </button>
 
           </div>
 
-                  </div>
-          <Canvas style={{ background:'rgba(25,25,25)', borderRadius:'20px',height:''}} >
-            <ambientLight intensity={5} />
-            <directionalLight position={[10, 20, 5]} intensity={3} />
-            <Center>
-              <Suspense fallback={<CanvasLoader />} >
-                <group scale={2} position={[0, -3, 0]} rotation={[0, -0.1, 0]} >
- 
-    <OrbitControls
-     enableZoom={false}
-    />
- 
-                  <DemoComputer videoTxt={myProjects[selectedProjectIndex].texture} />
-                </group>
+        </div>
+        <Canvas style={{ background: 'rgba(25,25,25)', borderRadius: '20px', height: '' }} >
+          <ambientLight intensity={5} />
+          <directionalLight position={[10, 20, 5]} intensity={3} />
+          <Center>
+            <Suspense fallback={<CanvasLoader />} >
+              <group scale={2} position={[0, -3, 0]} rotation={[0, -0.1, 0]} >
 
-              </Suspense>
+                <OrbitControls
+                  enableZoom={false}
+                />
 
-            </Center>
+                <DemoComputer videoTxt={myProjects[selectedProjectIndex].texture} />
+              </group>
 
-          </Canvas>
+            </Suspense>
+
+          </Center>
+
+        </Canvas>
 
 
 

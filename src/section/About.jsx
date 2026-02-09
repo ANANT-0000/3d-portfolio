@@ -2,6 +2,7 @@
 import Globe from 'react-globe.gl'
 import { Button } from '../components/Button'
 import ArcSlider from '../components/ArcSlider'
+import SkillWheel from '../components/SkillWheel'
 
 export const About = () =>
 {
@@ -32,11 +33,13 @@ export const About = () =>
                 </div>
 
                 <div className="col-span-1 xl:row-span-3 ">
-                    <div className="grid-container items-center">
-                        <img src="/assets/grid2.png" alt="grid2" className='w-full sm:w-[276px] h-fit object-contain ' />
-                        <div>
+                    <div className="grid-container items-center justify-center">
+                        <div className="flex items-center justify-center py-2">
+                            <SkillWheel />
+                        </div>
+                        <div className="text-center">
                             <p className="grid-headtext">Tech Stack</p>
-                            <p className="grid-subtext">React.js, Redux, JavaScript (ES6+), HTML5, CSS3, SCSS/Sass, TailwindCSS, Node.js, Express.js, MongoDB, MySQL, Python, C, C++, Java, Git & GitHub.</p>
+                            <p className="grid-subtext text-sm leading-relaxed">React.js, Redux, JavaScript, TypeScript, TailwindCSS, Node.js, Express.js, MongoDB, MySQL, Python, Git & GitHub.</p>
                         </div>
                     </div>
 

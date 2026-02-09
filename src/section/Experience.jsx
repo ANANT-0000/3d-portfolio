@@ -4,15 +4,31 @@ import { workExperiences } from '../constants'
 import { OrbitControls } from '@react-three/drei'
 import { CanvasLoader } from '../components/CanvasLoader'
 import { Developer } from '../components/Developer'
+import TimelineDial from '../components/TimelineDial'
 export const Experience = () =>
 {
     const [animationName, setAnimationName] = useState('idle');
+    const [activeExperience, setActiveExperience] = useState(0);
     return (
         <section className="c-space my-20">
             <div className="w-full text-white/60">
                 <h3 className="head-text">
                     Education & Achievements
                 </h3>
+
+                {/* Interactive Timeline Dial */}
+                <div className="my-6 p-4 rounded-xl bg-gray-500/10 border border-gray-600/20 hidden lg:block">
+                    <TimelineDial
+                        items={workExperiences.map(exp => ({ label: exp.name }))}
+                        activeIndex={activeExperience}
+                        onSelect={(index) =>
+                        {
+                            setActiveExperience(index);
+                            setAnimationName(workExperiences[index].animation.toLowerCase());
+                        }}
+                    />
+                </div>
+
                 <div className="work-container">
                     <div className="work-canvas">
                         <Canvas>
