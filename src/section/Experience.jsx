@@ -10,7 +10,7 @@ export const Experience = () =>
     const [animationName, setAnimationName] = useState('idle');
     const [activeExperience, setActiveExperience] = useState(0);
     return (
-        <section className="c-space my-20">
+        <section className="c-space my-20" id="work">
             <div className="w-full text-white/60">
                 <h3 className="head-text">
                     Education & Achievements
