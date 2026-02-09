@@ -1,6 +1,7 @@
 ﻿import React, { useState } from 'react'
 import Globe from 'react-globe.gl'
 import { Button } from '../components/Button'
+import ArcSlider from '../components/ArcSlider'
 
 export const About = () =>
 {
@@ -72,7 +73,7 @@ export const About = () =>
                 </div>
                 <div className="xl:col-span-1 xl:row-span-2">
                     <div className="grid-container items-center">
-                        <img src="/assets/grid4.png" alt="grid4" className='w-full md:h-[126px] sm:h[276px] h-fit object-contain sm:object-top' />
+                        <ArcSlider />
                         <div className="space-y-2">
 
                             <p className="grid-subtext text-center">Contact me</p>
