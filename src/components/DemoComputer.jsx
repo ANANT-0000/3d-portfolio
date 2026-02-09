@@ -3,24 +3,25 @@ import { useGLTF, useVideoTexture } from '@react-three/drei'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 
-export function DemoComputer ({videoTxt,...props})
+export function DemoComputer ({ videoTxt, ...props })
 {
-    const groupRef=useRef()
+    const groupRef = useRef()
     const { nodes, materials } = useGLTF('/models/personal_computer.glb')
-    const txt=useVideoTexture(videoTxt)
+    const txt = useVideoTexture(videoTxt)
 
-    useGSAP((state,delta)=>{
-        gsap.from(groupRef.current.rotation,{
-            y:Math.PI/2,
-            duration:1,
-            ease:'power3.out'
+    useGSAP((state, delta) =>
+    {
+        gsap.from(groupRef.current.rotation, {
+            y: Math.PI / 2,
+            duration: 1,
+            ease: 'power3.out'
         })
-    },videoTxt)
+    }, videoTxt)
     console.log(videoTxt);
     return (
         <group {...props} ref={groupRef} >
             <group rotation={[-Math.PI / 2, 0, 0]} scale={0.008}
-            position={[.56,0.8,-0.8]}
+                position={[.56, 0.8, -0.8]}
             >
                 <group rotation={[Math.PI / 2, 0, 0]}>
                     <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
@@ -41,9 +42,9 @@ export function DemoComputer ({videoTxt,...props})
                             receiveShadow
                             geometry={nodes.Cube_Screen_0.geometry}
                             material={materials.Screen}
-                            
+
                         >
-<meshBasicMaterial map={txt} />
+                            <meshBasicMaterial map={txt} />
 
                         </mesh>
                         <mesh
@@ -59,4 +60,4 @@ export function DemoComputer ({videoTxt,...props})
     )
 }
 
-useGLTF.preload('/personal_computer.glb')
+useGLTF.preload('/models/personal_computer.glb')
