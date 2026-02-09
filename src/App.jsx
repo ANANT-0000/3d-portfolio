@@ -25,7 +25,7 @@ export default function App ()
       <Suspense fallback={<SectionLoader />}>
         <About />
         <Projects />
-        <Clients />
+        {/* <Clients /> */}
         <Experience />
         <Contact />
       </Suspense>
